@@ -10,7 +10,7 @@ import (
 
 func New(f cmdutil.Factory) *cobra.Command {
 	cmd := cli.SetDefaultsOn(&cobra.Command{
-		Use:   "cluster",
+		Use:   "nodes",
 		Short: "Node operations with the Cluster Management System",
 		Long: `ydbops nodes [command]:
     Perform node operations.`,
