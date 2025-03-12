@@ -3,7 +3,7 @@ package cluster
 import (
 	"github.com/spf13/cobra"
 
-	"github.com/ydb-platform/ydbops/cmd/cluster/list"
+	"github.com/ydb-platform/ydbops/cmd/nodes/list"
 	"github.com/ydb-platform/ydbops/pkg/cli"
 	"github.com/ydb-platform/ydbops/pkg/cmdutil"
 )
@@ -11,9 +11,9 @@ import (
 func New(f cmdutil.Factory) *cobra.Command {
 	cmd := cli.SetDefaultsOn(&cobra.Command{
 		Use:   "cluster",
-		Short: "Global operations with the Cluster Management System",
-		Long: `ydbops cluster [command]:
-    Perform cluster-level operations.`,
+		Short: "Node operations with the Cluster Management System",
+		Long: `ydbops nodes [command]:
+    Perform node operations.`,
 		RunE: cli.RequireSubcommand,
 	})
 
