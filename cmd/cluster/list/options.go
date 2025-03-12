@@ -30,7 +30,13 @@ func (o *Options) Run(f cmdutil.Factory) error {
 
 	fmt.Printf("--- begin nodes ---\n")
 	for _, node := range nodes {
-		fmt.Printf("%d %s:%d %s", node.GetNodeId(), node.GetHost(), node.GetPort(), node.GetType())
+		nodeType := "UNKNOWN"
+		if node.GetStorage() != nil {
+			nodeType = "STORAGE"
+		} else if node.GetDynamic() != nil {
+			nodeType = "DATABASE"
+		}
+		fmt.Printf("%d\t%s:%d\t%s\n", node.GetNodeId(), node.GetHost(), node.GetPort(), nodeType)
 	}
 	fmt.Printf("--- end nodes ---\n")
 
